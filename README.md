@@ -1,4 +1,6 @@
+"""
 Programs for common CS questions grouped in directories by topic
+
  arrays-and-strings/
  linked-lists/
  stacks-queues/
@@ -16,4 +18,4 @@ Programs for common CS questions grouped in directories by topic
  threads-locks/
  misc-moderate-hard/
  advanced-algo/
-
+"""
