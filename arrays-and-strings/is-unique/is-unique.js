@@ -23,7 +23,7 @@ function allUniqArrayNtimeSmallSpace( str ) { /* uses bit shifting to reduce spa
   var cca='a'.charCodeAt(0);
   for (var i=0; i < str.length; i++){
     var v = str.charCodeAt(i) - cca;
-    var oslv = ( 1 << v);
+    var oslv = (1 << v);
     var cao = checker & oslv;
     console.log(
       "c=c|(1<<v): " + zeropad(checker.toString(2),32)  + " " + str[i] + " v=" + v + " " + str +
@@ -61,6 +61,6 @@ function runTests(answers,fn){
   console.log(numOK +"/"+numTotal+" tests passed ok");
 }
 var qa={ 'abcdefg'  : true, 'abcdafg'  : false, 'qwervasdf': true, 'success'  : false };
-//runTests(qa,allUniqDS);
-//runTests(qa,allUniqArrayNtime);
+runTests(qa,allUniqDS);
+runTests(qa,allUniqArrayNtime);
 runTests(qa,allUniqArrayNtimeSmallSpace);
