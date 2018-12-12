@@ -25,10 +25,10 @@ function allUniqArrayNtimeSmallSpace( str ) { /* uses bit shifting to reduce spa
     var v = str.charCodeAt(i) - cca;
     var oslv = (1 << v);
     var cao = checker & oslv;
-    console.log(
+    /*console.log(
       "c=c|(1<<v): " + zeropad(checker.toString(2),32)  + " " + str[i] + " v=" + v + " " + str +
     "\n1<<v:       " + zeropad(oslv.toString(2),32)     +
-    "\nc&(1<<v):   " + zeropad(cao.toString(2),32));
+    "\nc&(1<<v):   " + zeropad(cao.toString(2),32));*/
     if( cao > 0 ) return false;
     checker |= (oslv);
   }
