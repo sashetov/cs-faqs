@@ -35,5 +35,5 @@ function runTests(answers,fn){
 }
 
 var qa={ 'abcdefg'  : true, 'abcdafg'  : false, 'qwervasdf': true, 'success'  : false };
-runTestsDS(qa,allUniqDS,allUniqNoDSN2);
-runTestsDS(qa);
+runTests(qa,allUniqDS);
+runTests(qa,allUniqNoDSN2);
