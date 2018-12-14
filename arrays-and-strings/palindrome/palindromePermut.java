@@ -1,7 +1,7 @@
 import java.util.*;
 public class palindromePermut {
   public static void main(String... args) {
-    String[] strs= { "seshs es", "atco cta", "mthing else" };
+    String[] strs= { "sssseeh", "seshs es", "atco cta","taco cat", "mthing else" };
     for ( int i = 0; i < strs.length; i++ ){
       System.out.println( strs[i]+": "+ Boolean.toString(isPermutationOfPalindrome( strs[i])) );
     }
