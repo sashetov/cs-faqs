@@ -45,7 +45,7 @@ function checkExactlyOneBitSet( v ){ //console.log("     v-1: "+makeBinary(v - 1
 }
 function toggle( v, ix) {
   if( ix < 0 ) return v;
-  var m = 1 << ix;
+  var m = 1 << ix; //console.log("       m: " + makeBinary(m));
   if( (v & m)==0) v |= m;
   else v &= ~m;
   return v;
