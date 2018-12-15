@@ -19,7 +19,50 @@ function palindromePermut(s){ // time complexity: s
   }
   return true;
 }
-
+function zeropad(s,l){
+  var pad='';
+  if(s.length<l){
+    var d=l-s.length;
+    for(var i=0; i<d; i++){
+      pad+='0';
+    }
+  }
+  s = pad+s;
+  return s;
+}
+function makeBinary( n ){
+  return zeropad( n.toString(2), 32);
+}
+function getCharNum(c) {
+  var a = "a".charCodeAt(0),
+      z = "z".charCodeAt(0),
+      v = c.charCodeAt(0);
+  if ( a <=v && v <=z ) return v-a;
+  return -1
+}
+function checkExactlyOneBitSet( v ){ //console.log("     v-1: "+makeBinary(v - 1)+"\n"+" v&(v-1): "+makeBinary(v & (v - 1)));
+  return ( v & ( v - 1 ) ) == 0;
+}
+function toggle( v, ix) {
+  if( ix < 0 ) return v;
+  var m = 1 << ix;
+  if( (v & m)==0) v |= m;
+  else v &= ~m;
+  return v;
+}
+function createBitVector(s){
+  var v=0,i,c,x;
+  for(i in s){
+    c=s[i];
+    x = getCharNum(c);
+    v = toggle(v,x); //console.log("       v: "+makeBinary(v)+" '"+c+"' "+" x:"+x );
+  }
+  return v;
+}
+function palindromePermutBitShift(s){ //time complexity s, space complexity 1
+  var v = createBitVector(s);//bit vector
+  return ( v == 0 || checkExactlyOneBitSet(v));
+}
 function runTests(answers,fn){
   var numOK=0, numTotal=Object.keys(answers).length;
   for (var k in answers ) {
@@ -36,5 +79,5 @@ function runTests(answers,fn){
   console.log(numOK +"/"+numTotal+" tests passed ok");
 }
 var qa = { "sssseeh":true, "seshs es":true, "atco cta":true,"taco cat":true, "mthing else":false };
-
-runTests(qa,palindromePermut);
+runTests( qa,palindromePermut );
+runTests( qa,palindromePermutBitShift );
